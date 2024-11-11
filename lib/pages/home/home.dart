@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:my_shop/river_providers/product_provider.dart';
 import '../../models/products.dart';
+import '../../styles/app_colors.dart';
 import '../../utils/custom_scroll_behavior.dart';
 import 'category_list.dart';
 import '../detail/detail.dart';
@@ -26,7 +27,7 @@ class HomeScreen extends ConsumerWidget {
 
               return Container(
                 height: 140,
-                color: Colors.blueGrey[50],
+                color: AppColors.cardBackgroundColor,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Center(child: Text(mostExpProduct.title)),
@@ -117,7 +118,7 @@ class HomeScreen extends ConsumerWidget {
                             },
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Colors.blueGrey[50],
+                                color: AppColors.cardBackgroundColor,
                                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                               ),
                               child: Padding(
@@ -138,7 +139,7 @@ class HomeScreen extends ConsumerWidget {
                                           GestureDetector(
                                             child: Icon(
                                               Icons.favorite,
-                                              color: isFavorite ? Colors.blueGrey[700] : Colors.blueGrey[200],
+                                              color: isFavorite ? AppColors.badgeColor : AppColors.badgeInactiveColor,
                                             ),
                                             onTap: () {
                                               ref.read(favoritesProvider.notifier).toggleFavorite(product);
@@ -170,7 +171,7 @@ class HomeScreen extends ConsumerWidget {
                                           '\$${product.price}',
                                           style: TextStyle(
                                             fontSize: 13,
-                                            color: Colors.blueGrey[700],
+                                            color: AppColors.pricesColor,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),

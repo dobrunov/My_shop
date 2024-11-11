@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/products.dart';
+import '../../styles/app_colors.dart';
 import '../../utils/custom_scroll_behavior.dart';
 import '../category/products_by_category.dart';
 
@@ -39,7 +40,7 @@ class CategoryListWidget extends StatelessWidget {
                         category.name,
                         style: const TextStyle(color: Colors.white),
                       ),
-                      backgroundColor: Colors.blueGrey[300],
+                      backgroundColor: AppColors.primaryColor,
                       side: BorderSide.none,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.0),

@@ -8,6 +8,7 @@ import 'package:my_shop/pages/home/home.dart';
 import 'package:my_shop/pages/store/catalog.dart';
 import 'package:my_shop/river_providers/product_provider.dart';
 import 'package:my_shop/river_providers/providers.dart';
+import 'package:my_shop/styles/app_colors.dart';
 
 void main() {
   runApp(
@@ -66,7 +67,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
         child: Container(
           height: 70,
           decoration: BoxDecoration(
-            color: Colors.blueGrey[300],
+            color: AppColors.primaryColor,
             borderRadius: const BorderRadius.all(Radius.circular(35.0)),
           ),
           child: Row(
@@ -80,7 +81,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
                     child: Icon(
                       size: 30.0,
                       Icons.home,
-                      color: _selectedIndex == 0 ? Colors.white : const Color(0xff5E5E60),
+                      color: _selectedIndex == 0 ? Colors.white : AppColors.inactiveColor,
                     ),
                   ),
                 ]),
@@ -94,7 +95,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
                       child: Icon(
                         size: 30.0,
                         Icons.favorite,
-                        color: _selectedIndex == 1 ? Colors.white : const Color(0xff5E5E60),
+                        color: _selectedIndex == 1 ? Colors.white : AppColors.inactiveColor,
                       ),
                     ),
                     if (favorites.isNotEmpty)
@@ -103,7 +104,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
                         child: Container(
                           padding: const EdgeInsets.all(1),
                           decoration: BoxDecoration(
-                            color: Color(0xff177171),
+                            color: AppColors.badgeColor,
                             borderRadius: BorderRadius.circular(6),
                           ),
                           constraints: const BoxConstraints(minWidth: 15, minHeight: 15),
@@ -126,7 +127,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
                       child: Icon(
                         size: 30.0,
                         Icons.shopping_cart,
-                        color: _selectedIndex == 2 ? Colors.white : const Color(0xff5E5E60),
+                        color: _selectedIndex == 2 ? Colors.white : AppColors.inactiveColor,
                       ),
                     ),
                     if (cartItems.isNotEmpty)
@@ -135,7 +136,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
                         child: Container(
                           padding: const EdgeInsets.all(1),
                           decoration: BoxDecoration(
-                            color: Color(0xff177171),
+                            color: AppColors.badgeColor,
                             borderRadius: BorderRadius.circular(6),
                           ),
                           constraints: const BoxConstraints(minWidth: 14, minHeight: 14),

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_shop/pages/cart/cart.dart';
-import 'package:my_shop/pages/category/categories_screen.dart';
-import 'package:my_shop/pages/checkout/checkout.dart';
-import 'package:my_shop/pages/favorite.dart';
-import 'package:my_shop/pages/home/home.dart';
-import 'package:my_shop/pages/store/catalog.dart';
-import 'package:my_shop/river_providers/product_provider.dart';
-import 'package:my_shop/river_providers/providers.dart';
+
+import 'package:my_shop/providers/product_provider.dart';
+import 'package:my_shop/providers/providers.dart';
+import 'package:my_shop/router/app_router.dart';
+import 'package:my_shop/screens/cart/cart_screen.dart';
+import 'package:my_shop/screens/favorite/favorite.dart';
+import 'package:my_shop/screens/home/home.dart';
 import 'package:my_shop/styles/app_colors.dart';
 
 void main() {
@@ -21,14 +20,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: const MainScreen(),
-      routes: {
-        '/store': (context) => const CatalogScreen(),
-        '/all_categories': (context) => const CategoriesScreen(),
-        '/checkout': (context) => const CheckoutScreen(),
-      },
+      routerConfig: AppRouter.router,
     );
   }
 }

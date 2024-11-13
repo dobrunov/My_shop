@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../river_providers/providers.dart';
-import '../detail/detail.dart';
+import '../../providers/providers.dart';
+import '../../router/routes.dart';
 import 'counter.dart';
 
 class CartTile extends ConsumerWidget {
@@ -23,14 +24,7 @@ class CartTile extends ConsumerWidget {
         height: 95,
         color: Colors.teal[50],
         child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DetailScreen(product: product),
-              ),
-            );
-          },
+          onTap: () => context.push(ScreenRoutes.detail, extra: product),
           child: Row(
             children: [
               Expanded(

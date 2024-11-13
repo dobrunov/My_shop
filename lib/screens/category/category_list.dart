@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../models/products.dart';
+import '../../router/routes.dart';
 import '../../styles/app_colors.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import '../category/products_by_category.dart';
+import 'products_by_category.dart';
 
 class CategoryListWidget extends StatelessWidget {
   final List<Products> products;
@@ -27,14 +29,10 @@ class CategoryListWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductsByCategoryWidget(products: products, category: category),
-                        ),
-                      );
-                    },
+                    onTap: () => context.push(
+                      ScreenRoutes.productsByCategory,
+                      extra: {'products': products, 'category': category},
+                    ),
                     child: Chip(
                       label: Text(
                         category.name,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:my_shop/river_providers/providers.dart';
+import '../../providers/providers.dart';
+import '../../router/routes.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import '../detail/detail.dart';
 import 'cart_tile.dart';
 
 class CartScreen extends ConsumerWidget {
@@ -52,9 +53,7 @@ class CartScreen extends ConsumerWidget {
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/checkout');
-                    },
+                    onPressed: () => context.push(ScreenRoutes.checkout),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey, foregroundColor: Colors.white),
                     child: const Text('Create order'),
                   ),

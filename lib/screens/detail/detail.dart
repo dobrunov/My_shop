@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../models/products.dart';
-import '../../river_providers/providers.dart';
-import '../cart/cart.dart';
+import '../../providers/providers.dart';
+import '../../router/routes.dart';
 
 class DetailScreen extends ConsumerWidget {
   final Products product;
@@ -19,12 +20,7 @@ class DetailScreen extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CartScreen()),
-                );
-              },
+              onTap: () => context.push(ScreenRoutes.cart),
               child: Stack(
                 children: [
                   const Padding(
@@ -109,9 +105,7 @@ class DetailScreen extends ConsumerWidget {
                   SizedBox(
                     width: 140,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/checkout');
-                      },
+                      onPressed: () => context.push(ScreenRoutes.checkout),
                       child: const Text('Buy Now'),
                     ),
                   ),

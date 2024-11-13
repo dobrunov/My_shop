@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:my_shop/river_providers/product_provider.dart';
-import 'package:my_shop/river_providers/providers.dart';
+import '../../providers/product_provider.dart';
+import '../../providers/providers.dart';
+import '../../router/routes.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import '../cart/cart.dart';
-import '../detail/detail.dart';
 
 class CatalogScreen extends ConsumerStatefulWidget {
   const CatalogScreen({super.key});
@@ -17,7 +17,6 @@ class CatalogScreen extends ConsumerStatefulWidget {
 class StoreScreenState extends ConsumerState<CatalogScreen> {
   @override
   Widget build(BuildContext context) {
-    final cartItems = ref.watch(cartProvider);
     final productsAsyncValue = ref.watch(productsProvider);
 
     return Scaffold(
@@ -42,14 +41,7 @@ class StoreScreenState extends ConsumerState<CatalogScreen> {
                     style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('\$${product.price}'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(product: product),
-                      ),
-                    );
-                  },
+                  onTap: () => context.push(ScreenRoutes.detail, extra: product),
                 );
               },
             ),

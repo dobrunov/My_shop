@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:my_shop/river_providers/product_provider.dart';
 import '../../models/products.dart';
+import '../../providers/product_provider.dart';
+import '../../router/routes.dart';
 import '../../styles/app_colors.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import 'category_list.dart';
-import '../detail/detail.dart';
+import '../category/category_list.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -27,10 +28,26 @@ class HomeScreen extends ConsumerWidget {
 
               return Container(
                 height: 140,
-                color: AppColors.cardBackgroundColor,
+                color: AppColors.saleBackgroundColor,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Center(child: Text(mostExpProduct.title)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                          width: 100,
+                          child: Center(
+                              child: Text(
+                            mostExpProduct.title,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ))),
+                      Image.network(
+                        mostExpProduct.image,
+                        width: 160,
+                        height: 120,
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -49,9 +66,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 GestureDetector(
                   child: const Text('View All Categories'),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/all_categories');
-                  },
+                  onTap: () => context.push(ScreenRoutes.allCategories),
                 ),
               ],
             ),
@@ -79,9 +94,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 GestureDetector(
                   child: const Text('View All'),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/store');
-                  },
+                  onTap: () => context.push(ScreenRoutes.store),
                 ),
               ],
             ),
@@ -108,14 +121,7 @@ class HomeScreen extends ConsumerWidget {
                           final favorites = ref.watch(favoritesProvider);
                           final isFavorite = favorites.contains(product);
                           return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => DetailScreen(product: product),
-                                ),
-                              );
-                            },
+                            onTap: () => context.push(ScreenRoutes.detail, extra: product),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: AppColors.cardBackgroundColor,
@@ -171,7 +177,7 @@ class HomeScreen extends ConsumerWidget {
                                           '\$${product.price}',
                                           style: TextStyle(
                                             fontSize: 13,
-                                            color: AppColors.pricesColor,
+                                            color: AppColors.pricesTextColor,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),

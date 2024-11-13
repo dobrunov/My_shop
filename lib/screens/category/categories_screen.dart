@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_shop/pages/category/products_by_category.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:my_shop/river_providers/product_provider.dart';
-import 'package:my_shop/river_providers/providers.dart';
 import '../../models/products.dart';
+import '../../providers/product_provider.dart';
+import '../../providers/providers.dart';
+import '../../router/routes.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import '../cart/cart.dart';
-import '../detail/detail.dart';
 
 class CategoriesScreen extends ConsumerStatefulWidget {
   const CategoriesScreen({super.key});
@@ -50,14 +49,13 @@ class CategoriesScreenState extends ConsumerState<CategoriesScreen> {
                             categories[index].name,
                             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                           ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ProductsByCategoryWidget(products: products, category: categories[index]),
-                              ),
-                            );
-                          },
+                          onTap: () => context.push(
+                            ScreenRoutes.productsByCategory,
+                            extra: {
+                              'products': products,
+                              'category': categories[index],
+                            },
+                          ),
                         ),
                       ),
                     ),

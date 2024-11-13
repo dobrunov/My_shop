@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../river_providers/product_provider.dart';
-import 'detail/detail.dart';
+import '../../providers/product_provider.dart';
+import '../../router/routes.dart';
 
 class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({super.key});
@@ -20,14 +21,7 @@ class FavoritesScreen extends ConsumerWidget {
         itemBuilder: (context, index) {
           final product = favorites[index];
           return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(product: product),
-                ),
-              );
-            },
+            onTap: () => context.push(ScreenRoutes.detail, extra: product),
             child: ListTile(
               leading: Image.network(product.image),
               title: Text(product.title),

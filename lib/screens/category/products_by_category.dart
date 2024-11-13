@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../models/products.dart';
-import '../detail/detail.dart';
+import '../../router/routes.dart';
 
 class ProductsByCategoryWidget extends StatelessWidget {
   final List<Products> products;
@@ -29,14 +30,7 @@ class ProductsByCategoryWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(product: product),
-                ),
-              );
-            },
+            onTap: () => context.push(ScreenRoutes.detail, extra: product),
           );
         },
       ),

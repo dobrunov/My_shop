@@ -65,7 +65,10 @@ class HomeScreen extends ConsumerWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 GestureDetector(
-                  child: const Text('View All Categories'),
+                  child: Text(
+                    'View All Categories',
+                    style: TextStyle(fontSize: 15, color: AppColors.pricesTextColor, fontWeight: FontWeight.bold),
+                  ),
                   onTap: () => context.push(ScreenRoutes.allCategories),
                 ),
               ],
@@ -93,7 +96,10 @@ class HomeScreen extends ConsumerWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 GestureDetector(
-                  child: const Text('View All'),
+                  child: Text(
+                    'View All',
+                    style: TextStyle(fontSize: 15, color: AppColors.pricesTextColor, fontWeight: FontWeight.bold),
+                  ),
                   onTap: () => context.push(ScreenRoutes.store),
                 ),
               ],

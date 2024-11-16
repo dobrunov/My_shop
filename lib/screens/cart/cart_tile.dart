@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../providers/providers.dart';
 import '../../router/routes.dart';
+import '../../styles/app_colors.dart';
 import 'counter.dart';
 
 class CartTile extends ConsumerWidget {
@@ -22,13 +23,16 @@ class CartTile extends ConsumerWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 95,
-        color: Colors.teal[50],
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: AppColors.cardBackgroundColor,
+        ),
         child: GestureDetector(
           onTap: () => context.push(ScreenRoutes.detail, extra: product),
           child: Row(
             children: [
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +64,7 @@ class CartTile extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 10.0, right: 10),
                       child: Text(
                         '\$${product.price * product.quantity}',
-                        style: const TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 15, color: AppColors.pricesTextColor, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],

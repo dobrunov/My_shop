@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../providers/product_provider.dart';
 import '../../router/routes.dart';
+import '../../styles/app_colors.dart';
+import '../../utils/custom_scroll_behavior.dart';
 
 class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({super.key});
@@ -16,25 +18,52 @@ class FavoritesScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Favorites'),
       ),
-      body: ListView.builder(
-        itemCount: favorites.length,
-        itemBuilder: (context, index) {
-          final product = favorites[index];
-          return GestureDetector(
-            onTap: () => context.push(ScreenRoutes.detail, extra: product),
-            child: ListTile(
-              leading: Image.network(product.image),
-              title: Text(product.title),
-              subtitle: Text('\$${product.price}'),
-              trailing: IconButton(
-                icon: const Icon(Icons.remove_circle),
-                onPressed: () {
-                  ref.read(favoritesProvider.notifier).toggleFavorite(product);
-                },
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (favorites.isNotEmpty)
+            Expanded(
+              child: ScrollConfiguration(
+                behavior: MyCustomScrollBehavior(),
+                child: ListView.builder(
+                  itemCount: favorites.length,
+                  itemBuilder: (context, index) {
+                    final product = favorites[index];
+                    return GestureDetector(
+                      onTap: () => context.push(ScreenRoutes.detail, extra: product),
+                      child: ListTile(
+                        leading: Image.network(product.image),
+                        title: Text(product.title),
+                        subtitle: Text(
+                          '\$${product.price}',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: AppColors.pricesTextColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(
+                            Icons.remove_circle,
+                            color: Color(0xfffb2149),
+                          ),
+                          onPressed: () {
+                            ref.read(favoritesProvider.notifier).toggleFavorite(product);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          );
-        },
+          if (favorites.isEmpty)
+            const Center(
+                child: Text(
+              'You have not selected the products you like',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+        ],
       ),
     );
   }

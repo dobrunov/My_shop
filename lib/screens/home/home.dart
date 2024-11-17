@@ -226,15 +226,6 @@ class HomeScreen extends ConsumerWidget {
     if (products.isEmpty) {
       throw Exception('The products list is empty');
     }
-
-    Products mostExpensiveProduct = products[0];
-
-    for (var product in products) {
-      if (product.price > mostExpensiveProduct.price) {
-        mostExpensiveProduct = product;
-      }
-    }
-
-    return mostExpensiveProduct;
+    return products.reduce((curr, next) => curr.price > next.price ? curr : next);
   }
 }

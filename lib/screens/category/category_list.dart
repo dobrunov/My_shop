@@ -5,7 +5,6 @@ import '../../models/products.dart';
 import '../../router/routes.dart';
 import '../../styles/app_colors.dart';
 import '../../utils/custom_scroll_behavior.dart';
-import 'products_by_category.dart';
 
 class CategoryListWidget extends StatelessWidget {
   final List<Products> products;
@@ -33,15 +32,26 @@ class CategoryListWidget extends StatelessWidget {
                       ScreenRoutes.productsByCategory,
                       extra: {'products': products, 'category': category},
                     ),
-                    child: Chip(
-                      label: Text(
-                        category.name,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      backgroundColor: AppColors.primaryColor,
-                      side: BorderSide.none,
-                      shape: RoundedRectangleBorder(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.primaryColor,
+                            AppColors.secondaryColor,
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
                         borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Text(
+                        category.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

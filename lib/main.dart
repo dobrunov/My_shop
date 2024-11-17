@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:my_shop/providers/product_provider.dart';
 import 'package:my_shop/providers/providers.dart';
 import 'package:my_shop/router/app_router.dart';
@@ -62,6 +61,14 @@ class MainScreenState extends ConsumerState<MainScreen> {
           height: 70,
           decoration: BoxDecoration(
             color: AppColors.primaryColor,
+            gradient: LinearGradient(
+              colors: [
+                AppColors.primaryColor,
+                AppColors.secondaryColor,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
             borderRadius: const BorderRadius.all(Radius.circular(35.0)),
           ),
           child: Row(

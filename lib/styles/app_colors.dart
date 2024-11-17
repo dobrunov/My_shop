@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color primaryColor = const Color(0xFF68B278);
+  static Color secondaryColor = const Color(0xff86d593);
   static Color inactiveColor = const Color(0xfface3b5);
 
   static Color cardBackgroundColor = const Color(0xffE8EDE8);
@@ -11,4 +12,5 @@ class AppColors {
   static Color badgeInactiveColor = const Color(0xff888888);
 
   static Color pricesTextColor = const Color(0xFF58468D);
+  static Color bannerTextColor = const Color(0xFF1F006E);
 }

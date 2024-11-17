@@ -26,27 +26,40 @@ class HomeScreen extends ConsumerWidget {
             data: (products) {
               Products mostExpProduct = findMostExpensiveProduct(products);
 
-              return Container(
-                height: 140,
-                color: AppColors.saleBackgroundColor,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                          width: 100,
-                          child: Center(
-                              child: Text(
-                            mostExpProduct.title,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ))),
-                      Image.network(
-                        mostExpProduct.image,
-                        width: 160,
-                        height: 120,
-                      ),
-                    ],
+              return Padding(
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                child: Container(
+                  height: 140,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.primaryColor,
+                        AppColors.secondaryColor,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                            width: 120,
+                            child: Center(
+                                child: Text(
+                              mostExpProduct.title,
+                              style: TextStyle(color: AppColors.bannerTextColor, fontWeight: FontWeight.bold),
+                            ))),
+                        Image.network(
+                          mostExpProduct.image,
+                          width: 160,
+                          height: 120,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );

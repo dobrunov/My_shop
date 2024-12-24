@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../providers/providers.dart';
-import '../../router/routes.dart';
-import '../../styles/app_colors.dart';
+import '../../../core/routes/routes.dart';
+import '../../../core/theme/styles/app_colors.dart';
+import '../../../providers/cart_provider.dart';
 import 'counter.dart';
 
 class CartTile extends ConsumerWidget {

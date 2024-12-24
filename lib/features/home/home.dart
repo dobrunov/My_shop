@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/routes/routes.dart';
+import '../../core/theme/styles/app_colors.dart';
+import '../../core/utils/custom_scroll_behavior.dart';
 import '../../models/products.dart';
+import '../../providers/favorites_provider.dart';
 import '../../providers/product_provider.dart';
-import '../../router/routes.dart';
-import '../../styles/app_colors.dart';
-import '../../utils/custom_scroll_behavior.dart';
-import '../category/category_list.dart';
+import '../category/widgets/category_list.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});

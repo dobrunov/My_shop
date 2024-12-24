@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_shop/providers/favorites_provider.dart';
 import 'package:my_shop/providers/product_provider.dart';
-import 'package:my_shop/providers/providers.dart';
-import 'package:my_shop/router/app_router.dart';
-import 'package:my_shop/screens/cart/cart_screen.dart';
-import 'package:my_shop/screens/favorite/favorite.dart';
-import 'package:my_shop/screens/home/home.dart';
-import 'package:my_shop/styles/app_colors.dart';
+import 'package:my_shop/providers/cart_provider.dart';
+
+import 'core/routes/app_router.dart';
+import 'core/theme/styles/app_colors.dart';
+import 'features/cart/cart_screen.dart';
+import 'features/favorite/favorite.dart';
+import 'features/home/home.dart';
+
 
 void main() {
   runApp(

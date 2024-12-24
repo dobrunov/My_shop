@@ -1,16 +1,16 @@
 import 'package:go_router/go_router.dart';
 
+import 'package:my_shop/core/routes/routes.dart';
 import 'package:my_shop/models/products.dart';
-import 'package:my_shop/router/routes.dart';
-import 'package:my_shop/screens/cart/cart_screen.dart';
-import 'package:my_shop/screens/category/categories_screen.dart';
-import 'package:my_shop/screens/category/products_by_category.dart';
-import 'package:my_shop/screens/checkout/checkout.dart';
-import 'package:my_shop/screens/detail/detail.dart';
-import 'package:my_shop/screens/home/home.dart';
-import 'package:my_shop/screens/store/catalog.dart';
+import '../../features/cart/cart_screen.dart';
+import '../../features/category/categories_screen.dart';
+import '../../features/category/widgets/products_by_category.dart';
+import '../../features/checkout/checkout.dart';
+import '../../features/detail/detail.dart';
+import '../../features/home/home.dart';
+import '../../features/store/catalog.dart';
+import '../../main.dart';
 
-import '../main.dart';
 
 class AppRouter {
   static final router = GoRouter(

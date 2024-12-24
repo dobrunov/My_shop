@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/routes/routes.dart';
 import '../../models/products.dart';
-import '../../providers/providers.dart';
-import '../../router/routes.dart';
+import '../../providers/cart_provider.dart';
 
 class DetailScreen extends ConsumerWidget {
   final Products product;

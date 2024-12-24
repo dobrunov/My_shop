@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../providers/product_provider.dart';
-import '../../router/routes.dart';
-import '../../styles/app_colors.dart';
-import '../../utils/custom_scroll_behavior.dart';
+import '../../core/routes/routes.dart';
+import '../../core/theme/styles/app_colors.dart';
+import '../../core/utils/custom_scroll_behavior.dart';
+import '../../providers/favorites_provider.dart';
+
 
 class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({super.key});

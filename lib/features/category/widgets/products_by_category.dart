@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../models/products.dart';
-import '../../router/routes.dart';
+import '../../../core/routes/routes.dart';
+import '../../../models/products.dart';
 
 class ProductsByCategoryWidget extends StatelessWidget {
   final List<Products> products;

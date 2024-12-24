@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../models/products.dart';
-import '../../router/routes.dart';
-import '../../styles/app_colors.dart';
-import '../../utils/custom_scroll_behavior.dart';
+import '../../../core/routes/routes.dart';
+import '../../../core/theme/styles/app_colors.dart';
+import '../../../core/utils/custom_scroll_behavior.dart';
+import '../../../models/products.dart';
+
 
 class CategoryListWidget extends StatelessWidget {
   final List<Products> products;

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../providers/providers.dart';
-import '../../router/routes.dart';
-import '../../styles/app_colors.dart';
-import '../../utils/custom_scroll_behavior.dart';
-import 'cart_tile.dart';
+import '../../core/routes/routes.dart';
+import '../../core/theme/styles/app_colors.dart';
+import '../../core/utils/custom_scroll_behavior.dart';
+import '../../providers/cart_provider.dart';
+import 'widgets/cart_tile.dart';
 
 class CartScreen extends ConsumerWidget {
   const CartScreen({super.key});
